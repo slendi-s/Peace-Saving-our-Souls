@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AnimatedButton">
+    <Position X="2.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAIAAAAAACAAA=</HashCode>
+      <FileName>Assets\Arena\AnimatedButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameProcess">
+    <Position X="5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQAAIACAAAgAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Arena\GameProcess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoToScene">
+    <Position X="7.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Assets\Arena\GoToScene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestartGame">
+    <Position X="5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABIAAAAAACAAA=</HashCode>
+      <FileName>Assets\Arena\RestartGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trigger_Camera_and_Gate">
+    <Position X="7.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAEQAgAAEQAAAAAAAAAAAAAAwA=</HashCode>
+      <FileName>Assets\Arena\Trigger_Camera_and_Gate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
