@@ -21,7 +21,6 @@ public class UnitAttackSystem : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-           // DontDestroyOnLoad(gameObject);
             return true;
         }
         else
@@ -31,45 +30,19 @@ public class UnitAttackSystem : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        
-        
-        //   if (playerStatements.isAttack)
-        //   {
-        //       AttackComboCD(_pStatements,_pStats);
-        //   }
-    }
     public void Attack(PlayerStatements _pStatements, PlayerStats _pStats, PlayerComponents _pComponents)
     {
         _pStatements.isAttack = true;
-        
         _pStats.countattack += 1;
-        if (_pStats.countattack==1)
+        if (_pStats.countattack==1 || _pStats.countattack == 2 || _pStats.countattack == 3)
         {
             _pStats.attackComboCD = 1.5f;
-            _pComponents.animatorCharacter.SetTrigger("AttackCombo1");
+            var attackCombo = string.Format("AttackCombo{0}", _pStats.countattack);
+            _pComponents.animatorCharacter.SetTrigger(attackCombo);
             PrepareAttack(_pStats);
             AttackUse(_pStats,_pComponents);
-        }
-
-        if (_pStats.countattack == 2)
-        {
-            _pStats.attackComboCD = 1.5f;
-            _pComponents.animatorCharacter.SetTrigger("AttackCombo2");
-            PrepareAttack(_pStats);
-            AttackUse(_pStats, _pComponents);
-        }
-        if (_pStats.countattack == 3)
-        {
-            _pStats.attackComboCD = 1.5f;
-            _pComponents.animatorCharacter.SetTrigger("AttackCombo3");
-            PrepareAttack(_pStats);
-            AttackUse(_pStats, _pComponents);
             
         }
-       
-
     } 
     public void AttackComboCD(PlayerStatements _pStatements, PlayerStats _pStats)
     {
@@ -77,7 +50,6 @@ public class UnitAttackSystem : MonoBehaviour
         if (_pStats.attackComboCD <= 0)
         {
             _pStatements.isAttack = false;
-           // _pStats.attackComboCD = 1;
             _pStats.countattack = 0;
         }
 
@@ -89,9 +61,7 @@ public class UnitAttackSystem : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-           
             enemy.GetComponent<PlayerStats>().currentHealth -= _pStats.attackDamage;
-            
             if (enemy.GetComponent<PlayerStatements>().isDead == false)
                 enemy.GetComponent<PlayerComponents>().animatorCharacter.SetTrigger("Hurt");
             
@@ -100,16 +70,9 @@ public class UnitAttackSystem : MonoBehaviour
                 GameController.Instance.score += 1;
                 enemy.GetComponent<PlayerStatements>().isDead = true;
                 enemy.GetComponent<PlayerComponents>().animatorCharacter.SetBool("isDead",true);
-                enemy.GetComponent<PlayerStatements>().isDead = true;
                 StartCoroutine(Timer(enemy));
-                //       playerComponents.animatorCharacter.SetBool("isDead", true);
-                //   yield return new WaitForSeconds(1);
-                
-                //this.enabled = false;
             }
-            //  Debug.Log(enemy.name);
-            //  enemy.SendMessageUpwards("TakeDamage",20 );
-            //TakeDamage(20);
+        
         }
     }
     IEnumerator PrepareAttack(PlayerStats _pStats)
@@ -123,14 +86,12 @@ public class UnitAttackSystem : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         Destroy(enemy.gameObject);
         Physics2D.IgnoreLayerCollision(9, 10, false);
-        //enemy.gameObject.SetActive(false);
     }
 
     private void OnDrawGizmosSelected(PlayerStatements _pStatements,PlayerStats _pStats,PlayerComponents _pComponents)
     {
         if (_pComponents.attackPoint == null)
             return;
-
         Gizmos.DrawWireSphere(_pComponents.attackPoint.position, _pStats.attackRange);
     }
 
@@ -138,16 +99,7 @@ public class UnitAttackSystem : MonoBehaviour
     {
         _pStats.currentHealth -= damage;
         
-        Debug.Log("Эээ дубина");
-        //Debug.Log(playerStats.currentHealth);
-
-        
     }
 
-    public void Die()
-    {
-        Debug.Log("СМЭРТ");
-        
-    }
 
 }

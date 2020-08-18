@@ -39,7 +39,6 @@ public class UnitMovementSystem : MonoBehaviour
         {
             return;
         }
-        
         targetRB.velocity = new Vector2(direction*speed,targetRB.velocity.y);
 
     }

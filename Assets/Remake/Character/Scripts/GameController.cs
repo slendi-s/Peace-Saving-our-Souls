@@ -42,7 +42,6 @@ public class GameController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-           // DontDestroyOnLoad(gameObject);
             return true;
         }
         else
@@ -53,11 +52,6 @@ public class GameController : MonoBehaviour
     }
     private void Start()
     {
-        
-
-
-
-
         timerChanged = beginTimer;
         enemy = enemyCharacter;
         mainHero = playerCharacter;
@@ -115,32 +109,20 @@ public class GameController : MonoBehaviour
     {
         if (on)
         {
-            
-            
-   
             menu.SetActive(true);
-            
-            
-
             openedmenu = true;
-            
             if (PlayerPrefs.GetFloat("BestScore") < score)
             {
                 PlayerPrefs.SetFloat("BestScore", score);
-
             }
             bestscoretext.text = string.Format("РЕКОРД: {0}", PlayerPrefs.GetFloat("BestScore"));
             scoretext.text = string.Format("СЧЕТ: {0}", score);
-            
-            
-
         }
         if (!on)
         {
             openedmenu = false;
             menu.SetActive(false);
         }
-        
     }
     public void HealthCalculate(float damage)
     {

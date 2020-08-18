@@ -54,33 +54,12 @@ public class BotController : MonoBehaviour
             UnitMovementSystem.Instance.RunAnimation(true, playerComponents);
             UnitMovementSystem.Instance.Move(playerComponents.characterRB, goLeft, playerStats.speed);
         }
-
-        
-
-      //  UnitAttackSystem.Instance.Attack(playerStatements, playerStats, playerComponents);
-      //    UnitAttackSystem.Instance.AttackComboCD(playerStatements, playerStats);
-
-        Debug.Log(wasPositionA);
-
-        // MoveEnemy(playerComponents, touchMovePointA, touchMovePointB);
-
-
         UnitMovementSystem.Instance.Flip(goLeft,gameObject,playerStats);
-        //  Debug.Log(Vector2.Distance(transform.position, playerComponents.playerCharacter.transform.position));
-        //  if (Vector2.Distance(transform.position, playerComponents.playerCharacter.transform.position)< 4f)
-        //  {
-        //      UnitAttackSystem.Instance.Attack(playerStatements, playerStats, playerComponents);
-        //      UnitAttackSystem.Instance.AttackComboCD(playerStatements, playerStats);
-        //  }    
-
     }
     public void ISeeYou(PlayerComponents _pComponents, PlayerStats _pStats)
     {
-       
         beginSeePoint = new Vector2(_pComponents.groundCheck.position.x, _pComponents.groundCheck.position.y+1.5f);
         endSeePoint = new Vector2(beginSeePoint.x-_pStats.visionDistance, beginSeePoint.y);
-       // Gizmos.DrawLine(beginSeePoint, endSeePoint);
-        // var sd Physics2D.LinecastAll(playerComponents.groundCheck);
     }
     public void MoveEnemy(PlayerComponents _pComponents,Collider2D[] _touchMovePointA, Collider2D[] _touchMovePointB)
     {
@@ -106,28 +85,9 @@ public class BotController : MonoBehaviour
     }
     public void CalculateDistance(PlayerStats _pStats,PlayerComponents _pComponents,GameObject _gameObject)
     {
-
-        
-        
         directionA = _pStats.enemyMoveDistance / 2;
-
-       // wasPositionA = new Vector2(_pComponents.groundCheck.transform.localPosition.x - directionA, _pComponents.groundCheck.transform.localPosition.y);
-       // wasPositionB = new Vector2(_pComponents.groundCheck.transform.localPosition.x + directionA*2, _pComponents.groundCheck.transform.localPosition.y);
-
         wasPositionA = new Vector2(_gameObject.transform.position.x - directionA, _pComponents.groundCheck.transform.localPosition.y);
         wasPositionB = new Vector2(_gameObject.transform.position.x + directionA, _pComponents.groundCheck.transform.localPosition.y);
-
-        // playerComponents.enemyTargetMoveA.position = wasPositionA;
-        //  playerComponents.enemyTargetMoveB.position = wasPositionB;
-
-        //  
-        //  
-        // _pComponents.enemyTargetMoveA.transform.localPosition = new Vector2(wasPositionA - distanceA, _pComponents.enemyTargetMoveA.transform.localPosition.y);
-        //  var distanceB = _pStats.enemyMoveDistance / 2;
-        //  var wasPositionB = _pComponents.enemyTargetMoveB.transform.localPosition.x;
-        //  _pComponents.enemyTargetMoveB.transform.localPosition = new Vector2(wasPositionB + distanceB, _pComponents.enemyTargetMoveB.transform.localPosition.y);
-
-
     }
 
 }

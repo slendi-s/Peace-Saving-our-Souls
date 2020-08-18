@@ -13,8 +13,4 @@ public class PlayerComponents : MonoBehaviour
     public Animator animatorCharacter;
     public Transform attackPoint;
     public LayerMask enemyLayers;
-    public Transform enemyTargetMoveA;
-    public Transform enemyTargetMoveB;
-
-
 }
