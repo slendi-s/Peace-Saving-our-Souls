@@ -7,6 +7,8 @@
 ![diagram](https://sun9-57.userapi.com/qU2MpM9EhMDMIrM_TJSjNEI5lL-NLlmwWcBIiA/EbZMLFg76zk.jpg)
 ![diagram](https://sun9-16.userapi.com/yVgkLrrzS_i2ukyoNuxzwZkO22Vrzr9PYq_swg/2luoUc37WiI.jpg)
 ## Процесс игры
+### Диаграмма предметной области
+![diagram](https://sun9-24.userapi.com/pZirWhw8lOSvKX86Q9xz2edZhbZaTuwUdNtDSg/nKezlvZHJqc.jpg)
 Главная задача, отбиваться от волн монстров, которые появляются через n количество времени
 и чем дольше игра, тем быстрее и больше будут появлятся враги.
 Разберем этот момент
